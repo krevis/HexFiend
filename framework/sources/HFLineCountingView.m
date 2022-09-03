@@ -187,7 +187,7 @@ static const CGFloat kShadowWidth = 6;
     [self getLineNumberFormatString:formatString length:sizeof formatString];
     
     while (lineCount--) {
-        int charCount = sprintf(buffer + bufferIndex, formatString, lineValue);
+        int charCount = snprintf(buffer + bufferIndex, characterCount - bufferIndex, formatString, lineValue);
         HFASSERT(charCount > 0);
         bufferIndex += charCount;
         buffer[bufferIndex++] = '\n';   
